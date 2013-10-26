@@ -56,50 +56,50 @@ require(['app', 'jquery'], function (app, $) {
     console.log(app);
     console.log('Running jQuery %s', $().jquery);
 });
-//////////////////////////////////////////////////////////Starts Here///////////////////////
 
-api_key = '50e4716d262aabda1d6b863d0e6f0d0c';
+//  Mason Got me rolling with this...
+//  $.getJSON('http://api.themoviedb.org/3/discover/movie?api_key=50e4716d262aabda1d6b863d0e6f0d0c&append_to_response=releases,trailers&year=1985&callback=?').then(function(data){
+//   console.log(data)
+//   })
+
+//api_key = '50e4716d262aabda1d6b863d0e6f0d0c';
 
 $(document).ready(function(){
 
-   $('#movie').focus(function(){
-      var full = $("#trailers").has("").length ? true : false;
+   $('#see').focus(function(){
+      var full = $("#poster").has("img").length ? true : false;
       if(full == false){
-         $('#trailers').empty();
+         $('#poster').empty();
       }
    });
 
-   var getTrailer = function(){
+   var getPoster = function(){
 
-        var film = $('#movie').val();
+        var film = $('#see').val();
 
          if(film == ''){
 
-            $('#trailers').html("<h2 class='loading'>Please enter a Movie so I know which Trailer to find!</h2>");
+            $('#poster').html("<h2 class='loading'>Please enter a Valid Movie Title so I know which Poster to fetch!</h2>");
 
          } else {
 
-            $('#trailers').html("<h2 class='loading'>Searching through our infinite database of Trailers, one moment please!</h2>");
+            $('#poster').html("<h2 class='loading'>Searching through our infinite database of Posters, one moment please!</h2>");
 
-            $.getJSON("http://api.themoviedb.org/3/movie/550?api_key=50e4716d262aabda1d6b863d0e6f0d0c&append_to_response=trailers" + film + "?callback=?", function(json) {
-               if (json != "Not found"){
-                     $('#trailers').html('<h2 class="loading">Found It!</h2><id=" " src=' + json[0].trailers[0].youtube.source + ' />');
-                  } else {
-                     $.getJSON("http://api.themoviedb.org/3/movie/550?api_key=50e4716d262aabda1d6b863d0e6f0d0c&append_to_response=trailers", function(json) {
-                        console.log(json);
-                        });
-                  }
-             });
+            $.getJSON('http://api.themoviedb.org/3/search/movie?api_key=50e4716d262aabda1d6b863d0e6f0d0c&language=en&query=' + film + "&callback=?", function(json)
 
+            {
+                $('#poster').html('<h2 class="loading">Check it out!</h2> <img id="thePoster" src=http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500' + json.results[0].poster_path + '" />');
+            })         
+                ////////// ADDING 'http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500' TO THE 'src=' ON LINE #91 TOOK FOREVER TO FIGURE OUT!!!! ///////////////
           }
 
         return false;
    }
 
-   $('#search').click(getTrailer);
-   $('#movie').keyup(function(event){
+   $('#search').click(getPoster);
+   $('#poster').keyup(function(event){
        if(event.keyCode == 13){
-           getTrailer();
+           getPoster();
        }
    });
 
