@@ -26,7 +26,7 @@
             <div class="header">
                 <ul class="nav nav-pills pull-right">
                     <li class="active"><a href="index.html">Home</a></li>
-                    <li><a href="index1.html">Trailers</a></li>
+                    <li><a href="http://127.0.0.1:9000/index1.html">Trailers</a></li>
                     <li><a href="http://www.imdb.com/apps/?ref_=nb_app">Apps</a></li>
                 </ul>
                 <h3 class="text-muted">finale</h3>
@@ -34,23 +34,22 @@
 
             <div class="jumbotron">
                 <div class="container">
-                    <h1>Movie Poster Finder</h1>
-                    <div id="fetch">
-                        <input type="text" placeholder="Movie Title" id="see" />
-                        <button id="search">Lets see the Poster!</button>
-                    </div>
-                    <div id="poster">
-                        <h2></h2>
-                    </div>
+                    <h1>Movie Trailer Finder</h1>
                         
-                        <!--<div id="my">
-                            <iframe id="player" type="text/html" width="100%" height="390" rel="0"
+                        <div id="my">
+                            <!--<iframe id="player" type="text/html" width="100%" height="390" rel="0"
                                 src="http://www.youtube.com/embed/SUXWAEX2jlg?enablejsapi=1"
-                                frameborder="">
+                                frameborder="0">
                             </iframe>
                             Was playing with the idea...but comes down to time.
+                            -->
+                        
+                            <form id="vb_yt_search-form" action="http://www.youtube.com/results" method="get" target="_blank">
+                                <input id="vb_yt_search-term" placeholder="Movie Title" name="search_query" type="text" maxlength="128" />
+                                </select>
+                                <input type="submit" value="YouTube Search" />
+                            </form>
                         </div>
-                        -->                      
                 </div>
             </div>
 
