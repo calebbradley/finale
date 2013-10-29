@@ -76,11 +76,10 @@ $(document).ready(function(){
    var getPoster = function(){
 
         var film = $('#see').val();
-
          if(film == ''){
-
+            
             $('#poster').html("<h2 class='loading'>Please enter a Valid Movie Title so I know which Poster to fetch!</h2>");
-
+         
          } else {
 
             $('#poster').html("<h2 class='loading'>Searching through our infinite database of Posters, one moment please!</h2>");
@@ -90,7 +89,8 @@ $(document).ready(function(){
             {
                 $('#poster').html('<h2 class="loading">Check it out!</h2> <img id="thePoster" src=http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500' + json.results[0].poster_path + '" />');
             })         
-                ////////// ADDING 'http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500' TO THE 'src=' ON LINE #91 TOOK FOREVER TO FIGURE OUT!!!! ///////////////
+                ////////// ADDING 'http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500' TO THE 'src=' ON LINE #90 TOOK FOREVER TO FIGURE OUT!!!! ///////////////
+ 
           }
 
         return false;
@@ -98,10 +98,11 @@ $(document).ready(function(){
 
    $('#search').click(getPoster);
    $('#poster').keyup(function(event){
-       if(event.keyCode == 13){
+       if(event.keyCode === 13){
            getPoster();
        }
    });
 
 });
+
 
