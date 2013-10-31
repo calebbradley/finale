@@ -69,7 +69,7 @@ $(document).ready(function(){
    $('#see').focus(function(){
       var full = $("#poster").has("img").length ? true : false;
       if(full == false){
-         $('#poster').empty();
+         $('#poster').html('WELCOME! Begin by entering a Movie Title in Search Bar i.e. fast and furious');
       }
    });
 
