@@ -87,10 +87,9 @@ $(document).ready(function(){
             $.getJSON('http://api.themoviedb.org/3/search/movie?api_key=50e4716d262aabda1d6b863d0e6f0d0c&language=en&query=' + film + "&callback=?", function(json)
 
             {
-                $('#poster').html('<h2 class="loading">Check it out!</h2> <img id="thePoster" src=http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500' + json.results[0].poster_path + '" />');
+                $('#poster').html('<h2 class="loading" style="color: red">Ta DA!</h2> <img id="thePoster" src=http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500' + json.results[0].poster_path + '" /> <button id="add">ADD</button>');
             })         
-                ////////// ADDING 'http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500' TO THE 'src=' ON LINE #90 TOOK FOREVER TO FIGURE OUT!!!! ///////////////
- 
+                ////////// ADDING 'http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500' TO THE 'src=' ON LINE #90 TOOK FOREVER TO FIGURE OUT!!!! /////////////// 
           }
 
         return false;
@@ -105,6 +104,28 @@ $(document).ready(function(){
 
 });
 
+//AddView = Backbone.View.extend({
 
 
+  //      events: {
+  //              "click .add": "add"
 
+  //      },
+
+  //      initialize: function() {
+  //              $('.fav').append(this.el)
+  //              this.render()
+  //      },
+
+   //     render: function() {
+   //             this.$('#poster').append('thePoster')
+             
+  //      },
+
+  //      add: function() {
+  //              var image = $('.poster').val()
+  //              var data = {
+  //                      image: poster
+  //              }
+  //  }
+  //  })
