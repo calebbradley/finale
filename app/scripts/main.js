@@ -87,7 +87,7 @@ $(document).ready(function(){
             $.getJSON('http://api.themoviedb.org/3/search/movie?api_key=50e4716d262aabda1d6b863d0e6f0d0c&language=en&query=' + film + "&callback=?", function(json)
 
             {
-                $('#poster').html('<h2 class="loading" style="color: ">Here you go!</h2> <img id="thePoster" src=http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500' + json.results[0].poster_path + '" /> <button id="add">ADD</button>');
+                $('#poster').html('<h2 class="loading">Here you go!</h2> <img id="thePoster" src=http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500' + json.results[0].poster_path + '" /> <button id="add">ADD</button>');
             })         
                 ////////// ADDING 'http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500' TO THE 'src=' ON LINE #90 TOOK FOREVER TO FIGURE OUT!!!! /////////////// 
           }
