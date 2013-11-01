@@ -82,21 +82,132 @@ $(document).ready(function(){
          
          } else {
 
-            $('#poster').html("<h2 class='loading'>Searching through our infinite database of Posters, one moment please!</h2>");
+            //$('#poster').html("<h2 class='loading'>Searching through our infinite database of Posters, one moment please!</h2>");
+
+            //$.getJSON('http://api.themoviedb.org/3/search/movie?api_key=50e4716d262aabda1d6b863d0e6f0d0c&language=en&query=' + film + "&callback=?", function(json)
+
+            //{
+            //    $('#poster').html('<h2 class="loading">Here you go!</h2> <img id="thePoster" src=http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500' + json.results[2].poster_path + '" /> <button id="add">ADD</button>');
+            //})         
+                ////////// ADDING 'http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500' TO THE 'src=' ON LINE #90 TOOK FOREVER TO FIGURE OUT!!!! /////////////// 
 
             $.getJSON('http://api.themoviedb.org/3/search/movie?api_key=50e4716d262aabda1d6b863d0e6f0d0c&language=en&query=' + film + "&callback=?", function(json)
 
             {
                 $('#poster').html('<h2 class="loading">Here you go!</h2> <img id="thePoster" src=http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500' + json.results[0].poster_path + '" /> <button id="add">ADD</button>');
-            })         
+            })
+
+          }
+
+        return false;
+   }
+
+//This causes the images to appear in same div but first image 'flashes in' and second image 'flashes over it an instant later'
+//not what I wanted and didn't have the time to play with more
+
+//var index;
+//var a = ["0", "1", "2"];
+//for (index = 0; index < a.length; ++index) {
+//  console.log(a[index]);
+//}
+
+   $('#search').click(getPoster);
+   $('#poster').keyup(function(event){
+       if(event.keyCode === 13){
+           getPoster();
+       }
+   });
+
+});
+
+$(document).ready(function(){
+
+   $('#see').focus(function(){
+      var full = $("#poster").has("img").length ? true : false;
+      if(full == false){
+         $('#poster').html('WELCOME! Begin by entering a Movie Title in Search Bar i.e. fast and furious');
+      }
+   });
+
+   var getPoster = function(){
+
+        var film = $('#see').val();
+         if(film == ''){
+            
+            $('#poster').html("<h2 class='loading'>Please enter a Valid Movie Title so I know which Poster to fetch!</h2>");
+         
+         } else {
+
+            //$('#poster').html("<h2 class='loading'>Searching through our infinite database of Posters, one moment please!</h2>");
+
+            //$.getJSON('http://api.themoviedb.org/3/search/movie?api_key=50e4716d262aabda1d6b863d0e6f0d0c&language=en&query=' + film + "&callback=?", function(json)
+
+            //{
+            //    $('#poster').html('<h2 class="loading">Here you go!</h2> <img id="thePoster" src=http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500' + json.results[2].poster_path + '" /> <button id="add">ADD</button>');
+            //})         
                 ////////// ADDING 'http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500' TO THE 'src=' ON LINE #90 TOOK FOREVER TO FIGURE OUT!!!! /////////////// 
+
+            $.getJSON('http://api.themoviedb.org/3/search/movie?api_key=50e4716d262aabda1d6b863d0e6f0d0c&language=en&query=' + film + "&callback=?", function(json)
+
+            {
+                $('#post').html('<h2 class="loading">Here you go!</h2> <img id="thePoster" src=http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500' + json.results[1].poster_path + '" /> <button id="add">ADD</button>');
+            })
+
           }
 
         return false;
    }
 
    $('#search').click(getPoster);
-   $('#poster').keyup(function(event){
+   $('#post').keyup(function(event){
+       if(event.keyCode === 13){
+           getPoster();
+       }
+   });
+
+});
+
+
+$(document).ready(function(){
+
+   $('#see').focus(function(){
+      var full = $("#poster").has("img").length ? true : false;
+      if(full == false){
+         $('#poster').html('WELCOME! Begin by entering a Movie Title in Search Bar i.e. fast and furious');
+      }
+   });
+
+   var getPoster = function(){
+
+        var film = $('#see').val();
+         if(film == ''){
+            
+            $('#poster').html("<h2 class='loading'>Please enter a Valid Movie Title so I know which Poster to fetch!</h2>");
+         
+         } else {
+
+            //$('#poster').html("<h2 class='loading'>Searching through our infinite database of Posters, one moment please!</h2>");
+
+            //$.getJSON('http://api.themoviedb.org/3/search/movie?api_key=50e4716d262aabda1d6b863d0e6f0d0c&language=en&query=' + film + "&callback=?", function(json)
+
+            //{
+            //    $('#poster').html('<h2 class="loading">Here you go!</h2> <img id="thePoster" src=http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500' + json.results[2].poster_path + '" /> <button id="add">ADD</button>');
+            //})         
+                ////////// ADDING 'http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500' TO THE 'src=' ON LINE #90 TOOK FOREVER TO FIGURE OUT!!!! /////////////// 
+
+            $.getJSON('http://api.themoviedb.org/3/search/movie?api_key=50e4716d262aabda1d6b863d0e6f0d0c&language=en&query=' + film + "&callback=?", function(json)
+
+            {
+                $('#pos').html('<h2 class="loading">Here you go!</h2> <img id="thePoster" src=http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500' + json.results[2].poster_path + '" /> <button id="add">ADD</button>');
+            })
+
+          }
+
+        return false;
+   }
+
+   $('#search').click(getPoster);
+   $('#pos').keyup(function(event){
        if(event.keyCode === 13){
            getPoster();
        }
