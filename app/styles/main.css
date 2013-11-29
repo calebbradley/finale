@@ -3048,8 +3048,6 @@ fieldset[disabled] .btn {
   cursor: not-allowed;
   pointer-events: none;
   opacity: 0.65;
-  -webkit-filter: alpha(opacity=65);
-  filter: alpha(opacity=65);
   box-shadow: none;
 }
 
