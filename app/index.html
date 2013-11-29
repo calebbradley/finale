@@ -81,7 +81,11 @@
         </script>
 
         <!-- build:js scripts/main.js -->
-        <script data-main="scripts/main" src="finale/app/bower_components/requirejs/require.js"></script>
-        <!-- endbuild -->
+        
+        <script> 
+            require(['app/bower_components/requirejs/require.js'], function(){ 
+            require([]); 
+            }); 
+        </script>        <!-- endbuild -->
 </body>
 </html>
