@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
         <!-- build:js scripts/vendor/modernizr.js -->
-        <script src="bower_components/modernizr/modernizr.js"></script>
+        <script src="finale/app/bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
     </head>
     <body>
@@ -64,9 +64,9 @@
   
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
-        <script src="bower_components/jquery/jquery.js"></script> 
-        <script src="bower_components/underscore/underscore.js"></script>
-        <script src="bower_components/backbone/backbone.js"></script>
+        <script src="finale/app/bower_components/jquery/jquery.js"></script> 
+        <script src="finale/app/bower_components/underscore/underscore.js"></script>
+        <script src="finale/app/bower_components/backbone/backbone.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -79,13 +79,16 @@
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
-
+        <script>
+        var require = {
+            waitSeconds : 15,
+            paths : { 
+                "jquery" : "require_jquery" 
+            }
+        };
+        </script>
         <!-- build:js scripts/main.js -->
-        
-        <script> 
-            require(['bower_components/requirejs/require.js'], function(){ 
-            require([]); 
-            }); 
-        </script>        <!-- endbuild -->
+        <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
+        <!-- endbuild -->
 </body>
 </html>
