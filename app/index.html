@@ -79,22 +79,7 @@
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
-        <script>
-        var require = {
-            waitSeconds : 15,
-            paths : { 
-                "jquery" : "require_jquery" 
-            }
-        };
-        </script>
-        <script>
-            require( 
-            [ "scripts/main" ], 
-            function( page ) { 
-            page.start(); 
-            } 
-            );
-        </script> 
+
         <!-- build:js scripts/main.js -->
         <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
         <!-- endbuild -->
